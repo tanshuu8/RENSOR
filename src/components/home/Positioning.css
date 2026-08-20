@@ -1,0 +1,18 @@
+.positioning {
+  padding: clamp(2.5rem, 3.5vw, 3.5rem) 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.positioning__statement {
+  max-width: 900px;
+  color: var(--color-text);
+  text-align: center;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .positioning {
+    padding: var(--space-xl) 0;
+  }
+}

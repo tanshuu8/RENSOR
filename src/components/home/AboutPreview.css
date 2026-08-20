@@ -1,0 +1,14 @@
+.about-preview__content {
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.about-preview__heading {
+  margin-top: 0.5rem;
+}
+
+.about-preview__body {
+  max-width: 600px;
+}

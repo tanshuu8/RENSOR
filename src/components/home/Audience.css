@@ -1,0 +1,107 @@
+.audience__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: var(--space-2xl);
+}
+
+.audience__subtitle {
+  max-width: 560px;
+}
+
+.audience__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+}
+
+.audience-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: var(--color-surface);
+  transition: border-color var(--duration-fast) var(--ease-out),
+              background-color var(--duration-fast) var(--ease-out);
+}
+
+.audience-card:hover {
+  border-color: var(--color-muted);
+}
+
+.audience-card--open {
+  background-color: var(--color-soft-white);
+  border-color: var(--color-muted);
+}
+
+.audience-card__header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-lg) var(--space-xl);
+  text-align: left;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.audience-card__toggle {
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: var(--color-muted);
+  width: 24px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.audience-card__content {
+  overflow: hidden;
+}
+
+.audience-card__items {
+  padding: 0 var(--space-xl) var(--space-lg);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.audience-pill {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--color-charcoal);
+  border: 1px solid var(--color-charcoal);
+  border-radius: 9999px;
+  padding: 0.375rem 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  background-color: transparent;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.audience-pill:hover {
+  background-color: var(--color-charcoal);
+  color: var(--color-soft-white);
+}
+
+@media (max-width: 768px) {
+  .audience__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .audience-card__header {
+    padding: var(--space-md) var(--space-lg);
+  }
+
+  .audience-card__items {
+    padding: 0 var(--space-lg) var(--space-md);
+  }
+
+  .audience-pill {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.75rem;
+  }
+}

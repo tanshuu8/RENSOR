@@ -1,0 +1,233 @@
+/* ============================================
+   RENSOR — Premium Agency Footer
+   ============================================ */
+
+.footer {
+  background-color: var(--color-charcoal);
+  color: var(--color-soft-white);
+  padding: 0 0 clamp(1.5rem, 2.5vw, 2.25rem);
+  position: relative;
+  width: 100%;
+}
+
+.footer__inner {
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Top Area: 3-Column Layout --- */
+.footer__top {
+  display: grid;
+  grid-template-columns: 1.2fr auto 1.2fr;
+  align-items: center;
+  gap: clamp(2rem, 4vw, 4rem);
+  width: 100%;
+}
+
+/* Left Column: Branding */
+.footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-self: start;
+}
+
+.footer__brand-title {
+  font-size: clamp(1.25rem, 1.8vw, 1.5rem);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-soft-white);
+  text-decoration: none;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.footer__brand-title:hover {
+  opacity: 0.85;
+}
+
+.footer__tagline {
+  color: rgba(247, 246, 243, 0.55);
+  font-size: clamp(0.8125rem, 1vw, 0.9375rem);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Center Column: Iconic White Three-Blade Logo Mark */
+.footer__center-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  pointer-events: none;
+  user-select: none;
+}
+
+.footer__mark-img {
+  width: clamp(76px, 7vw, 104px);
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  mix-blend-mode: screen;
+  display: block;
+  filter: contrast(1.1);
+  transition: transform var(--duration-slow) var(--ease-out);
+}
+
+/* Right Column: Navigation & Connect Groups */
+.footer__nav {
+  display: flex;
+  gap: clamp(2.5rem, 4vw, 4.5rem);
+  justify-self: end;
+}
+
+.footer__nav-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.footer__nav-heading {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(247, 246, 243, 0.45);
+  margin-bottom: 0.35rem;
+}
+
+.footer__nav-link {
+  font-size: 0.875rem;
+  color: rgba(247, 246, 243, 0.75);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out),
+              transform var(--duration-fast) var(--ease-out);
+}
+
+.footer__nav-link:hover {
+  color: var(--color-soft-white);
+  transform: translateX(2px);
+}
+
+/* --- Horizontal Divider --- */
+.footer__divider {
+  height: 1px;
+  width: 100%;
+  background-color: rgba(247, 246, 243, 0.15);
+  margin: clamp(2.25rem, 3.5vw, 3.25rem) 0 clamp(1.25rem, 2vw, 1.75rem);
+}
+
+.footer__divider--top {
+  margin: 0 0 clamp(3rem, 4.5vw, 4.5rem);
+}
+
+/* --- Bottom Area: Copyright & Agency Signature --- */
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer__copyright {
+  font-size: 0.75rem;
+  color: rgba(247, 246, 243, 0.4);
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+.footer__signature {
+  display: flex;
+  align-items: center;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(247, 246, 243, 0.4);
+}
+
+.footer__signature-sep {
+  margin: 0 0.5rem;
+  color: rgba(247, 246, 243, 0.2);
+  font-weight: 300;
+}
+
+/* --- Responsive Breakpoints --- */
+
+/* Tablet (<= 1024px) */
+@media (max-width: 1024px) {
+  .footer__top {
+    grid-template-columns: 1fr auto 1fr;
+    gap: var(--space-xl);
+  }
+
+  .footer__nav {
+    gap: var(--space-2xl);
+  }
+}
+
+/* Mobile (<= 768px) */
+@media (max-width: 768px) {
+  .footer__top {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+    text-align: left;
+    width: 100%;
+  }
+
+  .footer__brand {
+    justify-self: stretch;
+    width: 100%;
+  }
+
+  .footer__center-mark {
+    justify-self: center;
+    order: 3;
+    padding-top: var(--space-md);
+  }
+
+  .footer__mark-img {
+    width: 72px;
+  }
+
+  .footer__nav {
+    justify-self: stretch;
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--space-2xl);
+    order: 2;
+    width: 100%;
+  }
+
+  .footer__nav-group {
+    min-width: 130px;
+  }
+
+  .footer__nav-link {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  .footer__signature {
+    flex-wrap: wrap;
+  }
+}
+
+/* Small Mobile (<= 480px) */
+@media (max-width: 480px) {
+  .footer__nav {
+    flex-direction: column;
+    gap: var(--space-xl);
+  }
+}
+

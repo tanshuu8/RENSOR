@@ -1,0 +1,121 @@
+.services-page,
+.services-page.section {
+  padding-top: calc(var(--header-height) + clamp(2.5rem, 5vw, 4rem));
+}
+
+.services-page__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: var(--space-4xl);
+}
+
+.services-page__subtitle {
+  max-width: 520px;
+}
+
+.services-page__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.service-block {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: var(--space-3xl);
+  padding: var(--space-3xl) 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.service-block:last-child {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.service-block__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.service-block__number {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--color-muted);
+}
+
+.service-block__body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.service-block__tagline {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.4;
+}
+
+.service-block__details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.service-block__detail-tag {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.375rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-muted);
+}
+
+.services-page__cta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  margin-top: var(--space-4xl);
+  padding: var(--space-3xl);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+}
+
+@media (max-width: 1024px) {
+  .services-page,
+  .services-page.section {
+    padding-top: calc(var(--header-height) + clamp(2rem, 4vw, 3rem));
+  }
+
+  .service-block {
+    grid-template-columns: 240px 1fr;
+    gap: var(--space-2xl);
+  }
+}
+
+@media (max-width: 768px) {
+  .services-page,
+  .services-page.section {
+    padding-top: calc(var(--header-height) + 1.75rem);
+  }
+
+  .services-page__header {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .service-block {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    padding: var(--space-2xl) 0;
+  }
+
+  .services-page__cta {
+    margin-top: var(--space-2xl);
+    padding: var(--space-xl);
+  }
+}

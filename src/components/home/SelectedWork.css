@@ -1,0 +1,194 @@
+/* ============================================
+   Selected Concepts — Editorial Portfolio Section
+   ============================================ */
+
+.selected-work.section {
+  padding-top: clamp(2.5rem, 4vw, 4rem);
+  padding-bottom: clamp(3rem, 5vw, 5rem);
+}
+
+.selected-work__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: clamp(2.5rem, 4vw, 3.5rem);
+}
+
+.selected-work__subtitle {
+  max-width: 500px;
+}
+
+.selected-work__grid {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(3rem, 5vw, 4.5rem);
+}
+
+/* ---- Project Block ---- */
+.project-block {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Portfolio Image Frame — wide, shallow, editorial */
+.project-block__image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2.1 / 1;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-color: var(--color-surface);
+}
+
+/* Image — always fills the frame */
+.project-block__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  transition: transform var(--duration-slow) var(--ease-out),
+              filter var(--duration-slow) var(--ease-out);
+  filter: saturate(0.85);
+}
+
+.project-block:hover .project-block__image {
+  transform: scale(1.025);
+  filter: saturate(1);
+}
+
+/* ---- Per-project crop control ---- */
+
+/* NOIR — interior dining, keep composition centered */
+#project-noir .project-block__image {
+  object-position: center 40%;
+}
+
+/* ARC — architecture exterior, favor upper structure */
+#project-arc .project-block__image {
+  object-position: center 35%;
+}
+
+/* PULSE — sphere product shot, center it and use contain to show full sphere */
+#project-pulse .project-block__image-wrapper {
+  background-color: #f5f2ed;
+}
+
+#project-pulse .project-block__image {
+  object-fit: contain;
+  object-position: center center;
+}
+
+/* ---- Overlay ---- */
+.project-block__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: var(--space-xl);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.35), transparent 60%);
+  opacity: 0;
+  transition: opacity var(--duration-normal) var(--ease-out);
+}
+
+.project-block:hover .project-block__overlay {
+  opacity: 1;
+}
+
+.project-block__view {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-soft-white);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ---- Project Info ---- */
+.project-block__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: var(--space-lg);
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.project-block__meta {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.project-block__number {
+  font-size: 0.6875rem;
+  color: var(--color-muted);
+}
+
+.project-block__divider {
+  color: var(--color-border);
+  font-weight: 300;
+}
+
+.project-block__title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.project-block__details {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.project-block__type {
+  background-color: var(--color-surface);
+  padding: 0.25rem 0.625rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.6875rem;
+  white-space: nowrap;
+}
+
+/* ---- Responsive ---- */
+
+@media (max-width: 1024px) {
+  .selected-work.section {
+    padding-top: var(--space-xl);
+  }
+
+  .project-block__image-wrapper {
+    aspect-ratio: 2 / 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-block__image-wrapper {
+    aspect-ratio: 1.6 / 1;
+    border-radius: var(--radius-md);
+  }
+
+  .project-block__info {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+
+  .project-block__details {
+    gap: 0.5rem;
+  }
+
+  .project-block__title {
+    font-size: clamp(1.25rem, 4.5vw, 1.5rem);
+  }
+
+  .selected-work__grid {
+    gap: var(--space-3xl);
+  }
+}
+
