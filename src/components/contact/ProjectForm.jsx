@@ -46,7 +46,7 @@ const internationalBudgetOptions = [
   { value: '$10,000+', label: '$10,000+' },
 ];
 
-export default function ProjectForm() {
+export default function ProjectForm({ onSubmitted }) {
   const [formState, setFormState] = useState('idle'); // idle | loading | success | error
   const [errorMessage, setErrorMessage] = useState('');
   const [pricingType, setPricingType] = useState('domestic'); // 'domestic' | 'international'
@@ -121,6 +121,7 @@ export default function ProjectForm() {
       }
 
       setFormState('success');
+      onSubmitted?.();
       reset();
       setPricingType('domestic');
     } catch (error) {
@@ -133,11 +134,11 @@ export default function ProjectForm() {
     return (
       <motion.div
         className="form-success"
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.4 }}
       >
-        <h2 className="form-success__heading text-h1">PROJECT RECEIVED.</h2>
+        <h1 className="form-success__heading text-display">PROJECT RECEIVED.</h1>
         <p className="form-success__text text-body-lg">
           Thanks for reaching out. We'll review your project and get back to you soon.
         </p>

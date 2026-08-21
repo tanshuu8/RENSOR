@@ -1,8 +1,22 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import ProjectForm from '../components/contact/ProjectForm';
 import './Contact.css';
 
 export default function Contact() {
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  useEffect(() => {
+    if (isSubmitted) {
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      if (window.__lenis) {
+        window.__lenis.scrollTo(0, { immediate: true });
+      }
+    }
+  }, [isSubmitted]);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -10,19 +24,21 @@ export default function Contact() {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
     >
-      <section className="contact-page section" aria-label="Start a project">
+      <section className={`contact-page section ${isSubmitted ? 'contact-page--submitted' : ''}`} aria-label="Start a project">
         <div className="contact-page__inner container">
-          <div className="contact-page__header">
-            <span className="text-label">Contact</span>
-            <h1 className="text-display">LET'S BUILD SOMETHING.</h1>
-            <p className="text-body-lg contact-page__subtitle">
-              Tell us about your project. We'll review it and get back to you soon.
-            </p>
-          </div>
+          {!isSubmitted && (
+            <div className="contact-page__header">
+              <span className="text-label">Contact</span>
+              <h1 className="text-display">LET'S BUILD SOMETHING.</h1>
+              <p className="text-body-lg contact-page__subtitle">
+                Tell us about your project. We'll review it and get back to you soon.
+              </p>
+            </div>
+          )}
 
           <div className="contact-page__content">
             <div className="contact-page__form-area">
-              <ProjectForm />
+              <ProjectForm isSubmitted={isSubmitted} onSubmitted={() => setIsSubmitted(true)} />
             </div>
 
             <div className="contact-page__info">
