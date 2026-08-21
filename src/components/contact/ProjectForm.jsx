@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import CustomSelect from '../ui/CustomSelect';
 import './ProjectForm.css';
 
 const formSchema = z.object({
@@ -24,22 +25,36 @@ const serviceOptions = [
   { value: 'Other', label: 'Other' },
 ];
 
-const budgetOptions = [
+const domesticBudgetOptions = [
   { value: '', label: 'Select budget (optional)' },
+  { value: '₹5K–₹15K', label: '₹5K – ₹15K' },
+  { value: '₹15K–₹25K', label: '₹15K – ₹25K' },
   { value: '₹25K–₹50K', label: '₹25K – ₹50K' },
   { value: '₹50K–₹1L', label: '₹50K – ₹1L' },
   { value: '₹1L+', label: '₹1L+' },
 ];
 
+const internationalBudgetOptions = [
+  { value: '', label: 'Select budget (optional)' },
+  { value: '$800–$1,500', label: '$800 – $1,500' },
+  { value: '$1,500–$3,000', label: '$1,500 – $3,000' },
+  { value: '$3,000–$5,000', label: '$3,000 – $5,000' },
+  { value: '$5,000–$10,000', label: '$5,000 – $10,000' },
+  { value: '$10,000+', label: '$10,000+' },
+];
+
 export default function ProjectForm() {
   const [formState, setFormState] = useState('idle'); // idle | loading | success | error
   const [errorMessage, setErrorMessage] = useState('');
+  const [pricingType, setPricingType] = useState('domestic'); // 'domestic' | 'international'
 
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
+    setValue,
+    watch,
   } = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -51,6 +66,24 @@ export default function ProjectForm() {
       budget: '',
     },
   });
+
+  // Explicitly register custom select fields for React Hook Form
+  useEffect(() => {
+    register('service');
+    register('budget');
+  }, [register]);
+
+  const selectedService = watch('service');
+  const selectedBudget = watch('budget');
+
+  const currentBudgetOptions =
+    pricingType === 'domestic' ? domesticBudgetOptions : internationalBudgetOptions;
+
+  const handlePricingTypeChange = (type) => {
+    if (type === pricingType) return;
+    setPricingType(type);
+    setValue('budget', '', { shouldValidate: false });
+  };
 
   const onSubmit = async (data) => {
     if (formState === 'loading') return; // Prevent duplicate submission
@@ -86,6 +119,7 @@ export default function ProjectForm() {
 
       setFormState('success');
       reset();
+      setPricingType('domestic');
     } catch (error) {
       setFormState('error');
       setErrorMessage(error.message || 'Something went wrong. Please try again or email us directly.');
@@ -158,33 +192,51 @@ export default function ProjectForm() {
       <div className="form-row">
         <div className="form-field">
           <label htmlFor="form-service" className="form-label">What do you need? *</label>
-          <select
+          <CustomSelect
             id="form-service"
-            className={`form-select ${errors.service ? 'form-input--error' : ''}`}
-            {...register('service')}
-          >
-            {serviceOptions.map((opt) => (
-              <option key={opt.value} value={opt.value} disabled={opt.value === ''}>
-                {opt.label}
-              </option>
-            ))}
-          </select>
+            options={serviceOptions}
+            value={selectedService}
+            onChange={(val) => setValue('service', val, { shouldValidate: true })}
+            placeholder="Select a service"
+            hasError={!!errors.service}
+            ariaLabel="What do you need?"
+          />
           {errors.service && <span className="form-error">{errors.service.message}</span>}
         </div>
 
-        <div className="form-field">
-          <label htmlFor="form-budget" className="form-label">Budget</label>
-          <select
+        <div className="form-field form-field--budget">
+          <div className="budget-control-header">
+            <label htmlFor="form-budget" className="form-label">
+              Budget
+            </label>
+            <div className="budget-toggle-group" role="group" aria-label="Budget Pricing Region">
+              <button
+                type="button"
+                className={`budget-toggle-btn ${pricingType === 'domestic' ? 'budget-toggle-btn--active' : ''}`}
+                onClick={() => handlePricingTypeChange('domestic')}
+                aria-pressed={pricingType === 'domestic'}
+              >
+                DOMESTIC
+              </button>
+              <button
+                type="button"
+                className={`budget-toggle-btn ${pricingType === 'international' ? 'budget-toggle-btn--active' : ''}`}
+                onClick={() => handlePricingTypeChange('international')}
+                aria-pressed={pricingType === 'international'}
+              >
+                INTERNATIONAL
+              </button>
+            </div>
+          </div>
+
+          <CustomSelect
             id="form-budget"
-            className="form-select"
-            {...register('budget')}
-          >
-            {budgetOptions.map((opt) => (
-              <option key={opt.value} value={opt.value}>
-                {opt.label}
-              </option>
-            ))}
-          </select>
+            options={currentBudgetOptions}
+            value={selectedBudget}
+            onChange={(val) => setValue('budget', val, { shouldValidate: true })}
+            placeholder="Select budget (optional)"
+            ariaLabel="Budget"
+          />
         </div>
       </div>
 
