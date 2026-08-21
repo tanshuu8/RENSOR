@@ -57,21 +57,26 @@ function SmoothScroll({ children }) {
 
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.15,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
       smoothWheel: true,
-      touchMultiplier: 2,
+      wheelMultiplier: 0.9,
+      touchMultiplier: 1.5,
+      infinite: false,
     });
 
     lenisRef.current = lenis;
     window.__lenis = lenis;
 
+    let rafId;
     function raf(time) {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     }
 
-    requestAnimationFrame(raf);
+    rafId = requestAnimationFrame(raf);
 
     // Pause Lenis when body overflow is set to hidden (e.g. mobile menu open)
     const observer = new MutationObserver(() => {
@@ -84,6 +89,7 @@ function SmoothScroll({ children }) {
     observer.observe(document.body, { attributes: true, attributeFilter: ['style'] });
 
     return () => {
+      cancelAnimationFrame(rafId);
       observer.disconnect();
       lenis.destroy();
       window.__lenis = null;

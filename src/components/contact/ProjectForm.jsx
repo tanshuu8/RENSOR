@@ -17,12 +17,15 @@ const formSchema = z.object({
 });
 
 const serviceOptions = [
-  { value: '', label: 'Select a service' },
+  { value: '', label: 'Select an option' },
   { value: 'Website', label: 'Website' },
-  { value: 'Website Redesign', label: 'Website Redesign' },
-  { value: 'Branding', label: 'Branding' },
-  { value: 'Website + Branding', label: 'Website + Branding' },
-  { value: 'Other', label: 'Other' },
+  { value: 'Website + AI', label: 'Website + AI' },
+  { value: 'Digital Product', label: 'Digital Product' },
+  { value: 'AI Experience', label: 'AI Experience' },
+  { value: 'Automation', label: 'Automation' },
+  { value: 'Brand + Website', label: 'Brand + Website' },
+  { value: 'Something else', label: 'Something else' },
+  { value: 'Not sure yet', label: 'Not sure yet' },
 ];
 
 const domesticBudgetOptions = [
@@ -191,7 +194,7 @@ export default function ProjectForm() {
 
       <div className="form-row">
         <div className="form-field">
-          <label htmlFor="form-service" className="form-label">What do you need? *</label>
+          <label htmlFor="form-service" className="form-label">What are you looking to build? *</label>
           <CustomSelect
             id="form-service"
             options={serviceOptions}

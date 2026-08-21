@@ -5,9 +5,9 @@ export default function Positioning() {
   return (
     <section className="positioning section" id="positioning" aria-label="Positioning statement">
       <div className="positioning__inner container">
-        <SectionReveal>
+        <SectionReveal distance={20}>
           <p className="positioning__statement text-h1">
-            DIGITAL EXPERIENCES FOR BUSINESSES READY TO MOVE FORWARD.
+            BUILT AT THE INTERSECTION OF DESIGN & TECHNOLOGY.
           </p>
         </SectionReveal>
       </div>

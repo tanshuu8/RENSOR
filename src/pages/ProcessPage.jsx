@@ -18,7 +18,7 @@ export default function ProcessPage() {
             <span className="text-label">How We Work</span>
             <h1 className="text-display">OUR PROCESS</h1>
             <p className="text-body-lg process-page__subtitle">
-              Every project follows a clear, structured process — from understanding your business to launching your website.
+              Every project follows a clear, structured process — from understanding your business to launching your digital experience.
             </p>
           </div>
 

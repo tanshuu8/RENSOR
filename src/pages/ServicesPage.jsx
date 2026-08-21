@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { services } from '../data/projects';
+import { servicesPageData } from '../data/projects';
 import SectionReveal from '../components/ui/SectionReveal';
 import './ServicesPage.css';
 
@@ -12,18 +12,18 @@ export default function ServicesPage() {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
     >
-      <section className="services-page section" aria-label="Our Services">
+      <section className="services-page section" aria-label="What We Build">
         <div className="services-page__inner container">
           <div className="services-page__header">
-            <span className="text-label">Services</span>
-            <h1 className="text-display">WHAT WE DO</h1>
+            <span className="text-label">Capabilities</span>
+            <h1 className="text-display">WHAT WE BUILD</h1>
             <p className="text-body-lg services-page__subtitle">
-              We help businesses build a stronger digital presence through design, development and branding.
+              We design, build and evolve digital experiences — from high-performance websites to full-stack products and intelligent systems.
             </p>
           </div>
 
           <div className="services-page__list">
-            {services.map((service, index) => (
+            {servicesPageData.map((service, index) => (
               <SectionReveal key={service.number} delay={index * 0.1}>
                 <div className="service-block">
                   <div className="service-block__header">

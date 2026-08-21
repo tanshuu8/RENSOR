@@ -15,17 +15,17 @@ export default function AboutPage() {
         <div className="about-page__inner container">
           <div className="about-page__header">
             <span className="text-label">About</span>
-            <h1 className="text-display">WE MAKE BUSINESSES LOOK BETTER ONLINE.</h1>
+            <h1 className="text-display">WE MAKE BUSINESSES WORK BETTER ONLINE.</h1>
           </div>
 
           <div className="about-page__content">
             <SectionReveal>
               <div className="about-page__intro">
                 <p className="text-body-lg">
-                  RENSOR is a digital design and development studio focused on creating thoughtful, high-performance websites, digital experiences and brand identities.
+                  RENSOR is an independent digital studio focused on creating thoughtful, high-performance websites, digital products and intelligent experiences.
                 </p>
                 <p className="text-body-lg">
-                  We combine strategy, design and technology to help businesses become easier to understand, easier to trust and harder to forget.
+                  We combine strategy, design and technology to help businesses become easier to understand, easier to trust and easier to interact with.
                 </p>
               </div>
             </SectionReveal>

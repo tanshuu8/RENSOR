@@ -17,7 +17,7 @@ export default function Footer() {
               RENSOR
             </Link>
             <p className="footer__tagline">
-              Digital Design &amp; Development Studio
+              Digital Experiences &amp; Technology Studio
             </p>
           </div>
 

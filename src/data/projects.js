@@ -86,31 +86,55 @@ export const projects = [
 export const services = [
   {
     number: '01',
-    title: 'DESIGN',
+    title: 'DIGITAL EXPERIENCES',
     tagline: 'Make your business look like it belongs where it\'s going.',
-    description: 'Website UI/UX, visual direction and brand identity. We create digital interfaces and visual identities that make brands easier to understand and remember.',
-    details: ['Website Design', 'UI/UX Design', 'Visual Direction', 'Brand Identity', 'Design Systems'],
+    description: 'Websites, landing pages, e-commerce and digital experiences designed around your brand, audience and goals.',
+    details: ['Website Design', 'UI/UX', 'Brand Websites', 'Landing Pages', 'E-commerce', 'Digital Experiences'],
   },
   {
     number: '02',
-    title: 'DEVELOP',
-    tagline: 'Turn the design into something people can actually use.',
-    description: 'Responsive, high-performance website development. Clean code, fast load times, and a seamless experience across every device.',
-    details: ['Responsive Development', 'Performance Optimization', 'CMS Integration', 'API Development', 'Technical Architecture'],
+    title: 'DIGITAL PRODUCTS',
+    tagline: 'Turn an idea into something people can actually use.',
+    description: 'Full-stack web applications and digital products built from concept to launch.',
+    details: ['Web Applications', 'SaaS', 'Dashboards', 'Customer Portals', 'MVP Development', 'Full-Stack Development', 'API Integration'],
   },
   {
     number: '03',
-    title: 'LAUNCH',
-    tagline: 'Take it from design file to live business.',
-    description: 'Deployment, optimization and getting the website ready for real users. We handle the technical details so you can focus on running your business.',
-    details: ['Deployment', 'Performance Tuning', 'SEO Foundation', 'Analytics Setup', 'Launch Support'],
+    title: 'AI & AUTOMATION',
+    tagline: 'Make the experience work harder.',
+    description: 'AI-powered assistants, agents and automated workflows that help businesses respond, qualify, convert and operate better.',
+    details: ['AI Assistants', 'AI Agents', 'Knowledge Assistants', 'WhatsApp AI', 'Lead Qualification', 'Appointment Automation', 'Workflow Automation'],
+  },
+];
+
+export const servicesPageData = [
+  {
+    number: '01',
+    title: 'DIGITAL EXPERIENCES',
+    tagline: 'We design the experience people see.',
+    description: 'Websites, landing pages, e-commerce and digital experiences designed around your brand, audience and goals.',
+    details: ['Website Design', 'UI/UX Design', 'Landing Pages', 'Brand Websites', 'E-commerce', 'Design Systems'],
+  },
+  {
+    number: '02',
+    title: 'DIGITAL PRODUCTS',
+    tagline: 'We build the systems people use.',
+    description: 'Full-stack web applications and digital products built from concept to launch.',
+    details: ['Web Applications', 'SaaS', 'Dashboards', 'Customer Portals', 'MVP Development', 'Full-Stack Development', 'API Integration'],
+  },
+  {
+    number: '03',
+    title: 'AI & AUTOMATION',
+    tagline: 'We make digital experiences work harder.',
+    description: 'AI-powered assistants, agents and automated workflows that help businesses respond, qualify, convert and operate better.',
+    details: ['AI Website Assistants', 'AI Agents', 'Knowledge Assistants', 'WhatsApp AI', 'Lead Qualification', 'Appointment Automation', 'Workflow Automation'],
   },
   {
     number: '04',
-    title: 'BRANDING',
-    tagline: 'Build a brand that works as hard as you do.',
-    description: 'Logo, visual identity, typography, colors and brand system. A complete brand foundation for businesses that want to be taken seriously.',
-    details: ['Logo Design', 'Visual Identity', 'Typography System', 'Color System', 'Brand Guidelines'],
+    title: 'LAUNCH & GROW',
+    tagline: 'We take it from build to business.',
+    description: 'Deployment, optimization and getting everything ready for real users.',
+    details: ['Deployment', 'Performance Optimization', 'SEO Foundation', 'Analytics', 'Maintenance', 'Ongoing Improvements'],
   },
 ];
 
@@ -150,7 +174,7 @@ export const processSteps = [
   {
     number: '02',
     title: 'DEFINE',
-    description: 'Structure content and user journeys.',
+    description: 'Structure the experience, content and user journeys.',
   },
   {
     number: '03',
@@ -159,13 +183,18 @@ export const processSteps = [
   },
   {
     number: '04',
-    title: 'DEVELOP',
-    description: 'Build the final responsive experience.',
+    title: 'BUILD',
+    description: 'Develop the website, application or digital product.',
   },
   {
     number: '05',
+    title: 'INTELLIGENCE',
+    description: 'Identify where AI and automation can improve the experience.',
+  },
+  {
+    number: '06',
     title: 'LAUNCH',
-    description: 'Test, deploy and hand over the final product.',
+    description: 'Test, deploy and get everything ready for real users.',
   },
 ];
 

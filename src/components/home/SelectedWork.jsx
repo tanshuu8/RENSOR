@@ -12,14 +12,14 @@ export default function SelectedWork() {
             <span className="text-label">Concepts</span>
             <h2 className="text-h1">SELECTED CONCEPTS</h2>
             <p className="text-body-lg selected-work__subtitle">
-              A selection of websites conceptualized and designed by RENSOR across different industries.
+              Explorations across industries we're built to serve.
             </p>
           </div>
         </SectionReveal>
 
         <div className="selected-work__grid">
           {projects.map((project, index) => (
-            <SectionReveal key={project.slug} delay={index * 0.1}>
+            <SectionReveal key={project.slug} delay={index * 0.08} distance={24}>
               <Link
                 to={`/work/${project.slug}`}
                 className="project-block"

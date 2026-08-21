@@ -1,6 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
+import RensorAI from '../ui/RensorAI';
 
 export default function Layout({ children }) {
   const location = useLocation();
@@ -12,6 +13,7 @@ export default function Layout({ children }) {
         {children}
       </main>
       <Footer />
+      <RensorAI />
     </div>
   );
 }

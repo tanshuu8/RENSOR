@@ -4,18 +4,21 @@ import './Services.css';
 
 export default function Services() {
   return (
-    <section className="services section" id="services" aria-label="Services">
+    <section className="services section" id="services" aria-label="What We Build">
       <div className="services__inner container">
         <SectionReveal>
           <div className="services__header">
-            <span className="text-label">Services</span>
-            <h2 className="text-h1">WHAT WE DO</h2>
+            <span className="text-label">Capabilities</span>
+            <h2 className="text-h1">WHAT WE BUILD</h2>
+            <p className="text-body-lg services__subtitle">
+              From the experience your customers see to the systems working behind it.
+            </p>
           </div>
         </SectionReveal>
 
         <div className="services__grid">
           {services.map((service, index) => (
-            <SectionReveal key={service.number} delay={index * 0.08}>
+            <SectionReveal key={service.number} delay={index * 0.08} distance={24}>
               <div className="service-card">
                 <div className="service-card__top">
                   <span className="service-card__number">{service.number}</span>
@@ -24,6 +27,13 @@ export default function Services() {
                 <h3 className="service-card__title text-h3">{service.title}</h3>
                 <p className="service-card__tagline">{service.tagline}</p>
                 <p className="service-card__description text-body">{service.description}</p>
+                {service.details && (
+                  <div className="service-card__details">
+                    {service.details.map((detail) => (
+                      <span key={detail} className="service-card__detail-tag">{detail}</span>
+                    ))}
+                  </div>
+                )}
               </div>
             </SectionReveal>
           ))}

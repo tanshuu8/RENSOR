@@ -19,7 +19,7 @@ export default function Audience() {
             <span className="text-label">Clients</span>
             <h2 className="text-h1">WHO WE BUILD FOR</h2>
             <p className="text-body-lg audience__subtitle">
-              From local businesses to ambitious startups, RENSOR creates digital experiences built around the way your business works.
+              From growing businesses to ambitious startups, RENSOR builds digital experiences around how people discover, understand and interact with what you do.
             </p>
           </div>
         </SectionReveal>

@@ -1,17 +1,35 @@
+import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 import './Hero.css';
 
 export default function Hero() {
+  const heroRef = useRef(null);
+  const shouldReduceMotion = useReducedMotion();
+
+  // Subtle scroll-linked motion
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ['start start', 'end start'],
+  });
+
+  const textY = useTransform(scrollYProgress, [0, 1], [0, shouldReduceMotion ? 0 : -28]);
+  const textOpacity = useTransform(scrollYProgress, [0, 0.8], [1, shouldReduceMotion ? 1 : 0.4]);
+  const imageY = useTransform(scrollYProgress, [0, 1], [0, shouldReduceMotion ? 0 : 20]);
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1, shouldReduceMotion ? 1 : 1.025]);
+
   return (
-    <section className="hero" id="hero" aria-label="Hero">
+    <section className="hero" id="hero" aria-label="Hero" ref={heroRef}>
       <div className="hero__inner container">
-        <div className="hero__content">
+        <motion.div
+          className="hero__content"
+          style={{ y: textY, opacity: textOpacity, willChange: 'transform' }}
+        >
           <motion.div
             className="hero__text"
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
           >
             <h1 className="hero__headline">
               WE BUILD DIGITAL <br />
@@ -23,18 +41,18 @@ export default function Hero() {
 
           <motion.p
             className="hero__supporting text-body-lg"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.65, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
           >
-            RENSOR is a digital studio creating high-performance websites and brands for ambitious businesses.
+            RENSOR is a digital studio creating high-performance websites, digital products and AI-powered experiences for ambitious businesses.
           </motion.p>
 
           <motion.div
             className="hero__cta-group"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.65, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
           >
             <Link to="/contact" className="btn btn-primary" id="hero-cta-primary">
               START A PROJECT <span className="arrow">↗</span>
@@ -43,13 +61,14 @@ export default function Hero() {
               VIEW OUR WORK <span className="arrow">↗</span>
             </Link>
           </motion.div>
-        </div>
+        </motion.div>
 
         <motion.div
           className="hero__image-wrapper"
-          initial={{ opacity: 0, scale: 0.98 }}
+          style={{ y: imageY, scale: imageScale, willChange: 'transform' }}
+          initial={{ opacity: 0, scale: shouldReduceMotion ? 1 : 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.85, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         >
           <img
             src="/images/hero-architecture.jpg"
