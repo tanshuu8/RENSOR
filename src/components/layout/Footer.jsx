@@ -44,7 +44,7 @@ export default function Footer() {
             <div className="footer__nav-group">
               <span className="footer__nav-heading">CONNECT</span>
               <a
-                href="https://instagram.com/rensor"
+                href="https://www.instagram.com/rensor.studio"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="footer__nav-link"

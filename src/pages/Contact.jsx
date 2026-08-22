@@ -51,7 +51,7 @@ export default function Contact() {
               <div className="contact-info-block">
                 <h3 className="contact-info-block__title text-label">Social</h3>
                 <a
-                  href="https://instagram.com/rensor"
+                  href="https://www.instagram.com/rensor.studio"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="contact-info-block__link"
