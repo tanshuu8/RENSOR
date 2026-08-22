@@ -37,13 +37,7 @@ export default function Header() {
       <header className={`header ${isScrolled ? 'header--scrolled' : ''}`} role="banner">
         <div className="header__inner container">
           <Link to="/" className="header__logo" aria-label="RENSOR — Home">
-            <img
-              src="/logo.svg"
-              alt="RENSOR"
-              className="header__logo-svg"
-              onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block'; }}
-            />
-            <span className="header__logo-text" style={{ display: 'none' }}>RENSOR</span>
+            <span className="header__logo-text">RENSOR</span>
           </Link>
 
           <nav className="header__nav" aria-label="Primary navigation">
